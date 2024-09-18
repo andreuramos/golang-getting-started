@@ -13,13 +13,6 @@ docker run -it -v $(pwd):/app -w /app --user $(id -u):$(id -g) golang:latest bas
 and then inside the container
 
 ```
+GOCACHE=/app/.cache
 go mod init example/hello
-```
-
-## run
-
-As the `/.cache` directory can't be created in the default location to specify a custom cache directory for this build, the `go run` command needs to define a `GOCACHE` value:
-
-```
-GOCACHE=/app/.cache go run .
 ```
