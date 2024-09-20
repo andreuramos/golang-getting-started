@@ -12,5 +12,5 @@ docker run -it -v $(pwd):/apps -w /apps --user $(id -u):$(id -g) --name golang_t
 and once inside the container set the cache directory to `/apps/.cache`
 
 ```
-GOCACHE=/apps/.cache
+export GOCACHE=/apps/.cache
 ```
