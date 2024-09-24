@@ -4,6 +4,12 @@
 
 ## Setup
 
+build the containers with:
 ```
 docker-compose up -d
+```
+
+to enter the `golang` or `mysql` containers:
+```
+docker exec -it (golang-container or mysql-container) bash
 ```
