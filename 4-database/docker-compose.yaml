@@ -17,6 +17,8 @@ services:
   database:
     image: "mysql:latest"
     container_name: "mysql-container"
+    volumes:
+      - "./:/database"
     ports:
       - "3307:3306"
     environment:
