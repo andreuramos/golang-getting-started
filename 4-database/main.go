@@ -5,18 +5,18 @@ import (
 	"fmt"
 	"log"
 	"os"
-	
+
 	"github.com/go-sql-driver/mysql"
 )
 
 var db *sql.DB
 
 func main() {
-	config := mysql.Config{
+	cfg := mysql.Config{
 		User: os.Getenv("DBUSER"),
 		Passwd: os.Getenv("DBPASS"),
 		Net: "tcp",
-		Addr: "127.0.0.1:3307",
+		Addr: "mysql-container:3307",
 		DBName: "recordings",
 	}
 	var err error
