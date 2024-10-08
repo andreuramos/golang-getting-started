@@ -16,8 +16,8 @@ func main() {
 		User: os.Getenv("DBUSER"),
 		Passwd: os.Getenv("DBPASS"),
 		Net: "tcp",
-		Addr: "mysql-container:3307",
-		DBName: "recordings",
+		Addr: "mysql-container:3306",
+		DBName: "test_db",
 	}
 	var err error
     db, err = sql.Open("mysql", cfg.FormatDSN())
