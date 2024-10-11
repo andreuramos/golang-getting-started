@@ -2,6 +2,10 @@ package main
 
 import "fmt"
 
+type Number interface {
+	int64 | float64
+}
+
 func main() {
     // Initialize a map for the integer values
     ints := map[string]int64{
@@ -24,7 +28,7 @@ func main() {
 		genericSum(floats))
 }
 
-func genericSum[K comparable, V int64 | float64](values map[K]V) V {
+func genericSum[K comparable, V Number](values map[K]V) V {
 	var sum V
 	for _, value := range(values) {
 		sum += value
