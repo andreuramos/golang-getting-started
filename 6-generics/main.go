@@ -20,8 +20,8 @@ func main() {
         SumFloats(floats))
 
 	fmt.Printf("Generic Sums: %v and %v\n",
-		genericSum[string, int64](ints),
-		genericSum[string, float64](floats))
+		genericSum(ints),
+		genericSum(floats))
 }
 
 func genericSum[K comparable, V int64 | float64](values map[K]V) V {
