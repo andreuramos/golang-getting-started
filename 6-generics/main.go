@@ -18,6 +18,18 @@ func main() {
     fmt.Printf("Non-Generic Sums: %v and %v\n",
         SumInts(ints),
         SumFloats(floats))
+
+	fmt.Printf("Generic Sums: %v and %v\n",
+		genericSum[string, int64](ints),
+		genericSum[string, float64](floats))
+}
+
+func genericSum[K comparable, V int64 | float64](values map[K]V) V {
+	var sum V
+	for _, value := range(values) {
+		sum += value
+	}
+	return sum
 }
 
 func SumInts(m map[string]int64) int64 {
