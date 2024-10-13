@@ -15,9 +15,9 @@ func TestReverse(t *testing.T) {
 	}
 
 	for _, tc := range testcases {
-		rev := Reverse(tc.in)
-		if rev != tc.want {
-			t.Errorf("Reverse: %q, want %q", rev, tc.want)
+		rev, err := Reverse(tc.in)
+		if rev != tc.want || err != nil {
+			t.Errorf("Reverse: %q, want %q, err %q", rev, tc.want, err)
 		}
  	}
 }
@@ -29,8 +29,15 @@ func FuzzReverse(f *testing.F) {
 	}
 
 	f.Fuzz(func(t *testing.T, orig string) {
-		rev := Reverse(orig)
-		doubleRev := Reverse(rev)
+		rev, err1 := Reverse(orig)
+		if err1 != nil {
+			return
+		}
+		doubleRev, err2 := Reverse(rev)
+		if err2 != nil {
+			return
+		}
+
 		if orig != doubleRev {
 			t.Errorf("Before: %q, after: %q", orig, doubleRev)
 		}
